@@ -1,0 +1,98 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.sidebar button:hover {
+  color: #4f46e5;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+  height: 60px;
+  background: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.user-section {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: #1e293b;
+  padding: 10px;
+  border-radius: 6px;
+  width: 120px;
+}
+
+.dropdown p {
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.dropdown p:hover {
+  color: #4f46e5;
+}
+
+/* Content */
+.content {
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.card {
+  background: #1e293b;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.download-btn {
+  padding: 10px 15px;
+  background: #4f46e5;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
