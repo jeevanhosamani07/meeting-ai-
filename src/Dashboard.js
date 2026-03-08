@@ -12,12 +12,17 @@ const [meetingCount,setMeetingCount] = useState(0);
 const [user,setUser] = useState(null);
 const [sidebarOpen,setSidebarOpen] = useState(false);
 const[menuOpen,setMenuOpen] = useState(null);
+const[tasks,setTasks] = useState([]);
 const navigate = useNavigate();
 
 useEffect(()=>{
 
 supabase.auth.getUser().then(({data})=>{
 setUser(data.user);
+
+if(data.user){
+loadTasks(data.user.email);
+}
 });
 
 const loadMeetings = async () => {
@@ -37,6 +42,18 @@ setMeetingCount(data.length);
 loadMeetings();
 
 },[]);
+const loadTasks = async (email) => {
+
+const { data } = await supabase
+.from("tasks")
+.select("*")
+.eq("user_email", email);
+
+if(data){
+setTasks(data);
+}
+
+};
 
 
 const handleLogout = () => {
@@ -49,16 +66,18 @@ const downloadReport = (meeting)=>{
 
 const doc = new jsPDF();
 
+const today = new 
+Date().toLocaleDateString();
 doc.setFontSize(18);
 doc.text("AI Meeting Report",20,20);
 
 doc.setFontSize(12);
+doc.text(`Date: ${today}`,20,30);
 
-doc.text("Transcript:",20,40);
-doc.text(doc.splitTextToSize(meeting.transcript || "",170),20,50);
 
-doc.text("Summary:",20,120);
-doc.text(doc.splitTextToSize(meeting.summary || "",170),20,130);
+doc.text(" Meeting Summary:",20,40);
+const summaryLines = doc.splitTextToSize(meeting.summary || "No summary available.",170);
+doc.text(summaryLines,20,50);
 
 doc.save("meeting-report.pdf");
 
@@ -186,6 +205,7 @@ Logout
 <h3>Total Meetings</h3>
 <p>{meetingCount}</p>
 </div>
+
 
 </div>
 

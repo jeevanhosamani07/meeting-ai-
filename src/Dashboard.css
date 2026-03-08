@@ -185,6 +185,7 @@ width:550px;
 
 height:42px;
 
+
 }
 
 
@@ -358,4 +359,23 @@ transition:margin-left 0.3s ease;
 
 .main-content.shift{
 margin-left:260px;
+}
+.task-card{
+
+background:rgba(30,41,59,0.7);
+
+border:1px solid rgba(56,189,248,0.3);
+
+padding:16px;
+
+border-radius:10px;
+
+margin-top:10px;
+
+width:350px;
+
+}
+.meeting-row span{
+  font-size: 15px !important;
+  font-weight:500;
 }

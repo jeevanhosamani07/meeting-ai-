@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-GEMINI_API_KEY = "AIzaSyAYiqp66N6jz_usFlwKoN6hFaIFSkEQUZI"
+GEMINI_API_KEY = "AIzaSyDrAHF79Uaz9VznalEAs_xkzyi-Lxhi1IQ"
 
 @app.route("/")
 def home():
